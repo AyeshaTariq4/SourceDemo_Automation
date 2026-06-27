@@ -8,8 +8,14 @@ from pages.inventory_page import InventoryPage
 from pages.checkout_page import CheckoutPage
 
 # Launch Browser
+options = webdriver.ChromeOptions()
+options.add_argument("--headless=new")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--window-size=1920,1080")
+
 service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service)
+driver = webdriver.Chrome(service=service, options=options)
 
 driver.maximize_window()
 driver.get("https://www.saucedemo.com")
@@ -49,6 +55,6 @@ time.sleep(3)
 
 print("Project Executed Successfully!")
 
-input("Press Enter to Close Browser...")
+#input("Press Enter to Close Browser...")
 
 driver.quit()
