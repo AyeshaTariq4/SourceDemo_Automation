@@ -36,6 +36,9 @@ time.sleep(2)
 # Open Cart
 inventory.open_cart()
 time.sleep(2)
+print(driver.current_url)
+print(driver.title)
+driver.save_screenshot("cart_page.png")
 
 # Checkout
 checkout.checkout()
